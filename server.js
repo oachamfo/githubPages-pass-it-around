@@ -4,8 +4,11 @@ const app = express();
 //homepage route
 app.get("/", function (req, res) {
   res.send(
-    "99 Bottles of beer on the wall" +
-      `<a href ="/98">take one down, pass it around</a>`
+    "<h1>" +
+      "99 Bottles of beer on the wall" +
+      "<br>" +
+      `<a style="text-decoration:none;" href ="/98">take one down, pass it around</a>` +
+      "</h1>"
   );
 });
 
@@ -16,7 +19,8 @@ app.get("/:number_of_bottles", function (req, res) {
     "<h1>" +
       req.params.number_of_bottles +
       " Bottles of beer on the wall" +
-      `<a href="/${num}">take one down, pass it around</a>` +
+      "<br>" +
+      `<a style="text-decoration:none;" class="link" href="/${num}">take one down, pass it around</a>` +
       "</h1>"
   );
 });
