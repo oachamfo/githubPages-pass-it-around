@@ -19,20 +19,19 @@ app.get("/:number_of_bottles", function (req, res) {
     res.send(
       "<h1>" +
         req.params.number_of_bottles +
-        " Bottles of beer on the wall" +
+        " Bottle(s) of beer on the wall" +
         "<br>" +
-        `<a style="text-decoration:none;" class="link" href="/">start over</a>` +
+        `<a target="_self" style="text-decoration:none;" class="link" href="/">start over</a>` +
         "</h1>"
     );
   } else {
     let num = req.params.number_of_bottles - 1;
-
     res.send(
       "<h1>" +
         req.params.number_of_bottles +
-        " Bottles of beer on the wall" +
+        " Bottle(s) of beer on the wall" +
         "<br>" +
-        `<a style="text-decoration:none;" class="link" href="/${num}">take one down, pass it around</a>` +
+        `<a target="_self" style="text-decoration:none;" class="link" href="/${num}">take one down, pass it around</a>` +
         "</h1>"
     );
   }
