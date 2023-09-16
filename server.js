@@ -14,15 +14,28 @@ app.get("/", function (req, res) {
 
 //:number_of_bottles route
 app.get("/:number_of_bottles", function (req, res) {
-  let num = req.params.number_of_bottles - 1;
-  res.send(
-    "<h1>" +
-      req.params.number_of_bottles +
-      " Bottles of beer on the wall" +
-      "<br>" +
-      `<a style="text-decoration:none;" class="link" href="/${num}">take one down, pass it around</a>` +
-      "</h1>"
-  );
+  let num = req.params.number_of_bottles;
+  if (num == 0) {
+    res.send(
+      "<h1>" +
+        req.params.number_of_bottles +
+        " Bottles of beer on the wall" +
+        "<br>" +
+        `<a style="text-decoration:none;" class="link" href="/">start over</a>` +
+        "</h1>"
+    );
+  } else {
+    let num = req.params.number_of_bottles - 1;
+
+    res.send(
+      "<h1>" +
+        req.params.number_of_bottles +
+        " Bottles of beer on the wall" +
+        "<br>" +
+        `<a style="text-decoration:none;" class="link" href="/${num}">take one down, pass it around</a>` +
+        "</h1>"
+    );
+  }
 });
 
 //tell app to listen on port 3000
