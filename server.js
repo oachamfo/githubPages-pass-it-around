@@ -15,11 +15,12 @@ app.get("/", function (req, res) {
 //:number_of_bottles route
 app.get("/:number_of_bottles", function (req, res) {
   let num = req.params.number_of_bottles;
-  if (num == 0) {
+
+  //if user puts zero, a negative number, or a string
+  if (num <= 0 || isNaN(num)) {
     res.send(
       "<h1>" +
-        req.params.number_of_bottles +
-        " Bottle(s) of beer on the wall" +
+        "0 Bottle(s) of beer on the wall" +
         "<br>" +
         `<a target="_self" style="text-decoration:none;" class="link" href="/">start over</a>` +
         "</h1>"
