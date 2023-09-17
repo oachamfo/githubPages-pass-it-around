@@ -20,9 +20,19 @@ app.get("/:number_of_bottles", function (req, res) {
   if (num <= 0 || isNaN(num)) {
     res.send(
       "<h1>" +
-        "0 Bottle(s) of beer on the wall" +
+        "0 Bottles of beer on the wall" +
         "<br>" +
         `<a target="_self" style="text-decoration:none;" class="link" href="/">start over</a>` +
+        "</h1>"
+    );
+  } else if (num == 1) {
+    let num = req.params.number_of_bottles - 1;
+    res.send(
+      "<h1>" +
+        req.params.number_of_bottles +
+        " Bottle of beer on the wall" +
+        "<br>" +
+        `<a target="_self" style="text-decoration:none;" class="link" href="/${num}">take one down, pass it around</a>` +
         "</h1>"
     );
   } else {
@@ -30,7 +40,7 @@ app.get("/:number_of_bottles", function (req, res) {
     res.send(
       "<h1>" +
         req.params.number_of_bottles +
-        " Bottle(s) of beer on the wall" +
+        " Bottles of beer on the wall" +
         "<br>" +
         `<a target="_self" style="text-decoration:none;" class="link" href="/${num}">take one down, pass it around</a>` +
         "</h1>"
